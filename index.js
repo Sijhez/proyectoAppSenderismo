@@ -7,6 +7,8 @@ const connectDB       = require('./config/db')
 require('dotenv').config()
 
 
+
+connectDB()
 //2 Middlewares
 
 app.use(express.static("public"))
@@ -16,7 +18,6 @@ app.set("view engine", "hbs")
 hbs.registerPartials(__dirname + "/views/partials")
 
 
-connectDB()
 // 3 Rutas
 
 
