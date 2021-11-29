@@ -1,7 +1,6 @@
 {
   "name": "proyectoappsenderismo",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -19,5 +18,14 @@
     "hbs": "^4.2.0",
     "mongoose": "^6.0.13",
     "nodemon": "^2.0.15"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sijhez/proyectoAppSenderismo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Sijhez/proyectoAppSenderismo/issues"
+  },
+  "homepage": "https://github.com/Sijhez/proyectoAppSenderismo#readme",
+  "description": ""
 }
