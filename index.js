@@ -4,21 +4,27 @@ const app             = express()
 const hbs             = require('hbs')
 const connectDB       = require('./config/db')
 
+
 require('dotenv').config()
 
 
+
+connectDB()
 //2 Middlewares
 
 app.use(express.static("public"))
+
+
+
 app.set("views", __dirname + "/views")
 app.set("view engine", "hbs")
 
 hbs.registerPartials(__dirname + "/views/partials")
 
 
-connectDB()
 // 3 Rutas
 
+app.use("/", require("./routes/index"))
 
 
 // 4 Servidor
