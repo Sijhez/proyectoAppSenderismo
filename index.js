@@ -20,6 +20,7 @@ hbs.registerPartials(__dirname + "/views/partials")
 
 // 3 Rutas
 
+app.use("/", require("./routes/index"))
 
 
 // 4 Servidor
