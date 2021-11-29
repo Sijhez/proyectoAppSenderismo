@@ -3,7 +3,7 @@
 const mongoose = require("mongoose")
 
 const connectDB = async () => {
-	await mongoose.connect("mongodb://localhost:27017/senderismo", {
+	await mongoose.connect(process.env.MONGODB_URI, {
 		useNewUrlParser: true,
 		useUnifiedTopology: true
 	})

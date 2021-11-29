@@ -6,8 +6,6 @@ const connectDB       = require('./config/db')
 
 require('dotenv').config()
 
-
-
 connectDB()
 //2 Middlewares
 
@@ -19,8 +17,8 @@ hbs.registerPartials(__dirname + "/views/partials")
 
 
 // 3 Rutas
-
-
+//home
+app.use("/", require("./routes/index"))
 
 // 4 Servidor
 
