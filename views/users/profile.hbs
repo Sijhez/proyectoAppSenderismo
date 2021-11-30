@@ -1,0 +1,32 @@
+<div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+  {{#if currentUser}}
+    <a
+      href="/users/profile"
+      class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
+    >
+      Mi perfil
+    </a>
+    <a
+      href="/logout"
+      class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+    >
+      Logout
+    </a>
+    {{currentUser.username}}
+
+  {{else}}
+    <a
+      href="/login"
+      class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
+    >
+      Sign in
+    </a>
+    <a
+      href="/signup"
+      class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+    >
+      Sign up
+    </a>
+  {{/if}}
+
+</div>

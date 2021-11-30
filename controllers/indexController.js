@@ -11,6 +11,7 @@ exports.viewRegister = (req, res) => {
 }
 
 exports.register = async (req, res) => {	
+
 	const username 	= req.body.username
 	const email 	= req.body.email
 	const password 	= req.body.password
@@ -57,4 +58,65 @@ exports.register = async (req, res) => {
 			errorMessage: "Hubo un error con la validez de tu correo. Intenta nuevamente. No dejes espacios y usa minúsculas."
 		})
 	}
+}
+
+exports.viewLogin = async (req, res) => {
+	res.render("login")
+}
+
+
+exports.login = async (req, res) => {
+
+	try {	
+	const email = req.body.email
+	const password = req.body.password	
+	const foundUser = await User.findOne({ email })
+
+	if(!foundUser){
+		res.render("login", {
+			errorMessage: "Email o contraseña sin coincidencia."
+		})
+
+		return
+	}
+
+	const verifiedPass = await bcryptjs.compareSync(password, foundUser.passwordEncriptado)
+
+	if(!verifiedPass){
+		res.render("login", {
+			errorMessage: "Email o contraseña errónea. Intenta nuevamente."
+		})
+
+		return
+	}
+
+	req.session.currentUser = {
+		_id: foundUser._id,
+		username: foundUser.username,
+		email: foundUser.email,
+		mensaje: "LO LOGRAMOS"
+	}
+
+	// 5. REDIRECCIONAR AL HOME
+	res.redirect("/users/profile")
+
+
+	} catch (error) {
+		console.log(error)	
+	}
+}
+
+
+exports.logout = async (req, res)  => {
+
+	req.session.destroy((error) => {
+		
+		if(error){
+			console.log(error)
+			return
+		}
+
+		res.redirect("/")
+	})
+
 }
