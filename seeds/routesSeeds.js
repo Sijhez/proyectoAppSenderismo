@@ -1,11 +1,10 @@
-//imports
 const mongoose = require('mongoose');
 const Route = require("./../models/Route")
 require('dotenv').config()
 
 //data base conection
-mongoose.connect(process.env.MONGOD_URI, {
-    useNewUrlParser: true, 
+mongoose.connect('mongodb://localhost:27017/senderismo', {
+    useNewUrlParser: true,
     useUnifiedTopology: true
 })
 

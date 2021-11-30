@@ -20,6 +20,11 @@ hbs.registerPartials(__dirname + "/views/partials")
 //home
 app.use("/", require("./routes/index"))
 
+//users
+app.use("/users", require("./routes/user"))
+
+app.use("/users", require("./routes/usersRoutes"))
+
 // 4 Servidor
 
 app.listen(process.env.PORT, () => {

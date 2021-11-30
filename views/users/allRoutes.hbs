@@ -1,0 +1,23 @@
+<h3 class="text-lg leading-6 font-medium text-gray-900">
+          Explora rutas de los demás.
+   </h3>
+
+   <ul>
+  {{#each data}}
+   <li><h2>{{this.title}}</h2>
+   <h3>{{this.state}}</h3>
+   <p>{{this.town}}</p>
+   <p>{{this.altitude}}</p>
+   <p>{{this.lodging}}</p>
+   <p>{{this.magiTown}}</p>
+   <p>{{this.hardness}}</p>
+   <p>{{this.description}}</p>
+   <img src="{{this.imgUrl}}" alt="" width="350px" height="auto">
+   {{!-- <a href="/books/{{this._id}}">Ver detalles</a>
+   <a href="/books/{{this._id}}/edit">Editar</a>
+   <form method="POST" action="/books/{{this._id}}/delete">
+     <button>Borrar</button>
+   </form> --}}
+   </li>
+{{/each}}
+</ul>
