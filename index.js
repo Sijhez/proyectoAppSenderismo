@@ -24,7 +24,7 @@ app.use("/", require("./routes/index"))
 //users
 app.use("/users", require("./routes/user"))
 
-app.use("/users", require("./routes/usersRoutes"))
+app.use("/createdRoutes", require("./routes/usersRoutes"))
 
 // 4 Servidor
 

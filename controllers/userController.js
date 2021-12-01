@@ -4,6 +4,7 @@ exports.profile = async(req, res)=>{
     res.render('users/userProfile')
 }
 
+//CREATE ROUTE- VIEWS
 exports.createRouteView = async(req, res)=>{
     res.render('users/myRoute')
 }
@@ -25,6 +26,14 @@ exports.createUserRoute = async (req, res)=>{
     res.redirect('/users/allRoutes')
 }
 
+//EDIT ROUTE- VIEWS
+exports.editUserRoute = async (req, res) =>{
+   
+}
 
+//DELETE ROUTE- VIEWS
 
+exports.deleteUserRoute = async (req, res) =>{
+   
+}
 
