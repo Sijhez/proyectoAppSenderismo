@@ -1,7 +1,13 @@
 const Route = require('./../models/Route')
 
-exports.profile = async(req, res)=>{
-    res.render('users/userProfile')
+// exports.profile = async(req, res)=>{
+//     res.render('users/userProfile')
+// }
+
+exports.profile = async (req,res) => {
+
+	res.render("users/profile")
+
 }
 
 exports.createRouteView = async(req, res)=>{
