@@ -13,6 +13,9 @@ const perfilSchema = mongoose.Schema({
 	edad: Number,
     pais: String,
     nivel: String,
+},
+{
+	timestamps: true
 })
 
 // 3. MODELO

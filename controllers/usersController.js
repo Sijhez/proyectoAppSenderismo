@@ -6,21 +6,26 @@ exports.profile = async (req,res) => {
 
 }
 
-exports.perfil = async (req, res) => {
+
+exports.viewProfile = async (req,res) => {
+	res.render("users/create")
+
+}
+
+exports.createProfile = async (req, res) => {
 	
 	console.log(req.body)
 
-	const photo = req.body.photo     
-	const nombre = req.body.nombre     
+	const photo    = req.body.photo     
+	const nombre   = req.body.nombre     
 	const apellido = req.body.apellido     
-	const usuario = req.body.usuario     
-	const edad = req.body.edad     
-    const pais = req.body.pais     
-    const nivel = req.body.nivel  
+	const usuario  = req.body.usuario     
+	const edad     = req.body.edad     
+    const pais     = req.body.pais     
+    const nivel    = req.body.nivel  
 	
 	 
-	try {
-		const newperfil = await Perfil.create({
+	const newperfil = await Perfil.create({
 			photo,
 			nombre,
 			apellido,
@@ -32,9 +37,8 @@ exports.perfil = async (req, res) => {
 		
 			console.log(newperfil)
 		
-			res.send('perfilcreado')
+			res.redirect('/profile')
 		
-	} catch (error) {
-		console.log(error)	
+	
 	}
-}
+

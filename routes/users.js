@@ -11,7 +11,9 @@ console.log("El routeguard importado es:", routeGuard.usuarioLoggeado)
 // 2. RUTEO
 
 router.get("/profile", routeGuard.usuarioLoggeado, usersController.profile)
-router.post("/profile",routeGuard.usuarioNoLoggeado, usersController.perfil)
+
+router.get("/create", routeGuard.usuarioLoggeado, usersController.viewProfile)
+router.post("/create",routeGuard.usuarioNoLoggeado, usersController.createProfile)
 
 
 module.exports = router
