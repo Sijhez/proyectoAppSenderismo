@@ -1,6 +1,5 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
 	<meta charset="UTF-8">
@@ -8,7 +7,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="/stylesheets/index.css">
+	{{!-- <link rel="stylesheet" href="/stylesheets/index.css"> --}}
+
 
 	<title>SenderismoApp</title>
 
@@ -16,10 +16,18 @@
 
 <body>
 
+
 		{{> header}}
 
-		{{{ body }}}
+<!-- This example requires Tailwind CSS v2.0+ -->
+<div class="container mx-auto sm:px-6 lg:px-8">
+  <!-- Content goes here -->
+  	{{{body}}}
+</div>
 
-		
+	
+
+	
 	
 </body>
+</html>

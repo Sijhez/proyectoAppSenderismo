@@ -8,9 +8,6 @@ const sessionManager = require("./config/session")
 
 require('dotenv').config()
 
-
-
-
 //2 Middlewares
 sessionManager(app)
 
@@ -22,8 +19,9 @@ app.set("views", __dirname + "/views")
 app.set("view engine", "hbs")
 
 hbs.registerPartials(__dirname + "/views/partials")
-
 app.use(express.urlencoded({ extended: true }))
+
+
 
 connectDB()
 // 3 Rutas
@@ -37,6 +35,7 @@ app.use((req, res, next) => {
 app.use("/users", require("./routes/users"))
 app.use("/", require("./routes/index"))
 
+app.use("/users", require("./routes/usersRoutes"))
 
 // 4 Servidor
 
