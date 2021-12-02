@@ -1,0 +1,41 @@
+{{! ./views/profile/edit.hbs }}
+<h1>Editar Perfil</h1>
+
+Este es el id:
+{{data._id}}
+
+<form action="/users/{{data._id}}/edit" method="POST">
+
+  <label>photo</label>
+  <input type="text" name="photo" value="{{data.photo}}" />
+
+  <br />
+  <label>Nombre</label>
+  <input type="text" name="nombre" value="{{data.nombre}}" />
+
+  <br />
+  <label>apellido</label>
+  <input type="text" name="apellido" value="{{data.apellido}}" />  
+
+  <br />
+
+  <label>edad</label>
+  <input type="number" name="edad" value="{{data.edad}}" />
+
+  <br />
+
+  <label>pais</label>
+  <input type="text" name="pais" value="{{data.pais}}" />
+
+  <br />
+
+  <label>nivel</label>
+  <input type="text" name="nivel" value="{{data.nivel}}" />
+
+  <br />
+
+  <button>
+    Guardar nuevos cambios
+  </button>
+
+</form>
