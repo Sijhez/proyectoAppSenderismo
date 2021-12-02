@@ -2,23 +2,6 @@
 const Perfil   = require('./../models/Perfil')
 const Route = require('./../models/Route')
 
-// exports.profile = async(req, res)=>{
-//     res.render('users/userProfile')
-// }
-
-// exports.profile = async (req,res) => {
-
-// 	res.render("users/profile")
-
-// }
-
-
-
-
-// /* exports.profile = async (req,res) => {
-// 	res.render("users/profile")
-
-// } */
 
 exports.getProfile = async (req, res) => {
 	const idUsuario = req.session.currentUser._id
@@ -121,9 +104,16 @@ exports.createProfile = async (req, res) => {
 	
 		// 3. REDIRECCIÓN
 		res.redirect("/users/profile")
-	
-	
-	}
+	 }
+   
+    exports.getOneProfile = async(req, res) =>{
+        const profileID = req.params.profileID
+        const getOneUser = await Perfil.findById(profileID)
+        res.render("users/userProfile",{
+            data:getOneUser
+        })
+    }
+
 
 //CREATE ROUTE- VIEWS
 exports.createRouteView = async(req, res)=>{
@@ -141,8 +131,9 @@ exports.createUserRoute = async (req, res)=>{
     const hardness = req.body.hardness
     const description = req.body.description
     const imgUrl = req.body.imgUrl
+    const postedBy = req.session.currentUser.username
     
-     const newRouteCreated = await Route.create({title, state, town, altitude, lodging, magicTown, hardness, description, imgUrl})
+     const newRouteCreated = await Route.create({title, state, town, altitude, lodging, magicTown, hardness, description, imgUrl, postedBy})
     //console.log("nueva ruta en DB:", newRouteCreated)
 
     res.redirect('/createdRoutes/allRoutes')

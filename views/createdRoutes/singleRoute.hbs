@@ -2,42 +2,40 @@
 <div class="bg-white">
   <section aria-labelledby="features-heading" class="relative">
     <div class="aspect-w-3 aspect-h-2 overflow-hidden sm:aspect-w-5 lg:aspect-none lg:absolute lg:w-1/2 lg:h-full lg:pr-4 xl:pr-16">
-      <img src="{{this.imgUrl}}" alt="{{this.title}}" class="h-full w-full object-center object-cover lg:h-full lg:w-full">
+      <img src="{{this.getSingleRoute.imgUrl}}" alt="{{this.getSingleRoute.title}}" class="h-full w-full object-center object-cover lg:h-full lg:w-full">
     </div>
 
     <div class="max-w-2xl mx-auto pt-16 pb-24 px-4 sm:pb-32 sm:px-6 lg:max-w-7xl lg:pt-32 lg:px-8 lg:grid lg:grid-cols-2 lg:gap-x-8">
       <div class="lg:col-start-2">
-        <h2 id="features-heading" class="font-medium text-gray-500">{{this.state}}</h2>
-        <p class="mt-4 text-4xl font-extrabold text-gray-900 tracking-tight">{{this.title}}</p>
-        <p class="mt-4 text-gray-500"><b>Hospedaje Cercano:</b> {{this.lodging}}.</p>
+        <h2 id="features-heading" class="font-medium text-gray-500">{{this.getSingleRoute.state}}</h2>
+        <p class="mt-4 text-4xl font-extrabold text-gray-900 tracking-tight">{{this.getSingleRoute.title}}</p>
+        <p class="mt-4  text-gray-900 tracking-tight"><b>Posteado por:</b>
+        
+       {{this.getSingleRoute.postedBy}}</p>
+        <p class="mt-4 text-gray-500"><b>Hospedaje Cercano:</b> {{this.getSingleRoute.lodging}}.</p>
 
         <dl class="mt-10 grid grid-cols-1 gap-y-10 gap-x-8 text-sm sm:grid-cols-2">
           <div>
             <dt class="font-medium text-gray-900">Altitud</dt>
-            <dd class="mt-2 text-gray-500">{{this.altitude}} Mts sobre el nivel del mar</dd>
+            <dd class="mt-2 text-gray-500">{{this.getSingleRoute.altitude}} Mts sobre el nivel del mar</dd>
           </div>
 
           <div>
             <dt class="font-medium text-gray-900">Pueblos Mágicos:</dt>
-            <dd class="mt-2 text-gray-500">{{this.magicTown}}</dd>
+            <dd class="mt-2 text-gray-500">{{this.getSingleRoute.magicTown}}</dd>
           </div>
 
-          {{!-- <div>
-            <dt class="font-medium text-gray-900">Thoughtfully designed</dt>
-            <dd class="mt-2 text-gray-500">The comfortable disc binding allows you to quickly rearrange pages or combine lined, graph, and blank refills.</dd>
-          </div>
-
-          <div>
-            <dt class="font-medium text-gray-900">Locally made</dt>
-            <dd class="mt-2 text-gray-500">Responsibly and sustainably made real close to wherever you are, somehow.</dd>
-          </div> --}}
+         
          </dl>
-               <p class="mt-4 text-gray-500"><b>Descripción de la ruta:</b> {{this.description}}.</p>
-       <a href="/createdRoutes/{{this._id}}/editMyRoute">Editar la ruta</a>
+               <p class="mt-4 text-gray-500"><b>Descripción de la ruta:</b> {{this.getSingleRoute.description}}.</p>
+      {{#if creado}}
+      <a href="/createdRoutes/{{this.getSingleRoute._id}}/editMyRoute">Editar la ruta</a>
          <br>
-         <form method="POST" action="/createdRoutes/{{this._id}}/delete">
+      <form method="POST" action="/createdRoutes/{{this.getSingleRoute._id}}/delete">
         <button>Eliminar esta ruta</button>
-        </form>
+      </form>
+      {{/if}}
+     
       </div>
   
     </div>

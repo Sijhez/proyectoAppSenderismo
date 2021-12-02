@@ -17,16 +17,14 @@ router.get("/create", routeGuard.usuarioLoggeado, usersController.viewProfile)
 router.post("/create",routeGuard.usuarioLoggeado, usersController.createProfile)
 
 router.get("/profile", usersController.getProfile)
+//watch one user profile
+router.get("/:profileID", usersController.getOneProfile)
 
 router.get("/:profileID/edit", usersController.viewEditProfile)
 
 router.post("/:profileID/edit",routeGuard.usuarioLoggeado, usersController.editProfile)
 
 router.post("/:profileID/delete",routeGuard.usuarioLoggeado, usersController.deleteProfile)
-
-
-/* router.get("/profile", usersController.getProfileId) */
-
 
 module.exports = router
 
