@@ -1,27 +1,95 @@
 <h1>Editar mi ruta creada</h1>
 <form action="/createdRoutes/{{data._id}}/editMyRoute" method="POST">
-	<label>Título</label>
-	<input type="text" name="title" value="{{data.title}}" />
+	
 
-	<br />
+	<div class="space-y-6 sm:space-y-5">
+        <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+          <label for="title" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+            Título de Ruta
+         </label>
+          <div class="mt-1 sm:mt-0 sm:col-span-2">
+            <input type="text" value="{{data.title}}" name="title" id="title" class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
+          </div>
+        </div>
 
-	<label>Descripción</label>
-	<textarea type="text" name="description">
-		{{data.description}}
-	</textarea>
+        <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+          <label for="state" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+            Estado del país
+          </label>
+          <div class="mt-1 sm:mt-0 sm:col-span-2">
+            <input value="{{data.state}}" type="text" name="state" id="state" autocomplete="address-level1" class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
+          </div>
+        </div>
 
-	<br />
+        <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+          <label for="town" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+            Pueblos cercanos
+          </label>
+          <div class="mt-1 sm:mt-0 sm:col-span-2">
+              <input value="{{data.town}}" type="text" name="town" id="town" autocomplete="address-level1" class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
+          </div>
+        </div>
 
-	<label>Autor</label>
-	<input type="text" name="author" value="{{data.author}}" />
+        <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+          <label for="altitude" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+          Altitud
+          </label>
+          <div class="mt-1 sm:mt-0 sm:col-span-2">
+            <input value="{{data.altitude}}" type="number" name="altitude" id="altitude"  class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
+          </div>
+        </div>
+ 
+        <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+          <label for="lodging" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+            Hospedaje
+          </label>
+          <div class="mt-1 sm:mt-0 sm:col-span-2">
+            <input id="lodging" value="{{data.lodging}}" name="lodging" type="text" class="block max-w-lg w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 rounded-md">
+          </div>
+        </div>
 
-	<br />
+        <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+          <label for="magicTown" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+            Pueblo mágico
+          </label>
+           <div class="mt-1 sm:mt-0 sm:col-span-2">
+            <input type="text" value="{{data.magicTown}}" name="magicTown" id="magicTown" class="block max-w-lg w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 rounded-md">
+          </div>
+        </div>
 
-	<label>Rating</label>
-	<input type="number" name="rating" value="{{data.rating}}" />
+        <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+          <label for="hardness" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+          Dificultad
+          </label>
+          <div class="mt-1 sm:mt-0 sm:col-span-2">
+            <input type="number" value="{{data.hardness}}" name="hardness" id="hardness" class="block max-w-lg w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 rounded-md">
+          </div>
+        </div>
 
-	<br />
+         <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+          <label for="description" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+            Descripción
+          </label>
+          <div class="mt-1 sm:mt-0 sm:col-span-2">
+            <textarea id="description" name="description" rows="3" class="max-w-lg shadow-sm block w-full focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border border-gray-300 rounded-md">
+				{{data.description}}
+			</textarea>
+            <p class="mt-2 text-sm text-gray-500">Describe como fue la ruta, dificultades, tips, etc</p>
+          </div>
+        </div>
 
+        <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+          <label for="imgUrl" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+            Imagen
+          </label>
+          <div class="mt-1 sm:mt-0 sm:col-span-2">
+            <input value="{{data.imgUrl}}" type="text" name="imgUrl" id="imgUrl"  class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
+          </div>
+        </div>
+    </div>
+	
+
+	
 	<button>
 		Guardar nuevos cambios
 	</button>

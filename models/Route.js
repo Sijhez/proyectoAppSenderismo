@@ -2,7 +2,7 @@ const mongoose = require("mongoose")
 const routeSchema = mongoose.Schema({
     title: String,
     state: String,
-    town: [String],
+    town: String,
     altitude: Number,
     lodging: String,
     magicTown: String,
