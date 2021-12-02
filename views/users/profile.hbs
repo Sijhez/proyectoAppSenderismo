@@ -1,29 +1,29 @@
-
-
-
-{{!-- ./views/books/list.hbs --}}
+{{! ./views/users/profile.hbs }}
 <h1>Perfil</h1>
 
-<a href="/users/create"> <button>Crear Perfil</button> </a>
 
-<ul>
-{{#each data}}
-	
-	<li>
 
-		<p>{{this._id}}</p>
-		<h1>{{this.nombre}}</h1>
-		
-		{{!-- <a href="/users/{{this._id}}/edit">
-			Editar
-		</a>
 
-		<form method="POST" action="/users/{{this._id}}/delete">
-			<button>Borrar</button>
-		</form> --}}
+{{#if data}}
 
-	</li>
-	
+  <a href="/users/{{this._id}}/edit">Editar</a>
+ 
+ 
+{{else}}
 
-{{/each}}
-</ul>
+  <a href="/users/create"> <button>Crear Perfil</button> </a>
+
+{{/if}}
+
+<br>
+      {{#with data}}
+
+      <p>{{this._id}}</p>
+      <h1>{{this.nombre}}</h1>
+      <h1>{{this.apellido}}</h1>
+
+      <form method="POST" action="/users/{{this._id}}/delete">
+        <button>Borrar</button>
+      </form>    
+
+  {{/with}}

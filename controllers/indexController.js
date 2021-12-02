@@ -94,7 +94,7 @@ exports.login = async (req, res) => {
 		_id: foundUser._id,
 		username: foundUser.username,
 		email: foundUser.email,
-		mensaje: "LO LOGRAMOS"
+		
 	}
 
 	// 5. REDIRECCIONAR AL HOME

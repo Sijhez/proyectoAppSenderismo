@@ -13,6 +13,7 @@ const perfilSchema = mongoose.Schema({
 	edad: Number,
     pais: String,
     nivel: String,
+	idUsuario: String
 },
 {
 	timestamps: true
