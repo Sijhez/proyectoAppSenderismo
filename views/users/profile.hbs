@@ -6,8 +6,7 @@
 
 {{#if data}}
 
-  <a href="/users/{{this._id}}/edit">Editar</a>
- 
+  <a href="/users/{{data._id}}/edit">Editar</a>   
  
 {{else}}
 
@@ -15,12 +14,15 @@
 
 {{/if}}
 
+
 <br>
       {{#with data}}
 
-      <p>{{this._id}}</p>
-      <h1>{{this.nombre}}</h1>
-      <h1>{{this.apellido}}</h1>
+      <p>ID: {{this._id}}</p>
+      <h1>Nombre: {{this.nombre}}</h1>
+      <h1>Apellido: {{this.apellido}}</h1>
+
+      
 
       <form method="POST" action="/users/{{this._id}}/delete">
         <button>Borrar</button>

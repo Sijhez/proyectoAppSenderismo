@@ -81,7 +81,7 @@ exports.createProfile = async (req, res) => {
 	}
 
 	exports.editProfile = async (req, res) => {
-
+		const profileID = req.params.profileID
 		const photo    = req.body.photo     
 		const nombre   = req.body.nombre     
 		const apellido = req.body.apellido     
@@ -89,18 +89,20 @@ exports.createProfile = async (req, res) => {
 		const edad     = req.body.edad     
     	const pais     = req.body.pais     
     	const nivel    = req.body.nivel 
-		const profileID = req.params.profileID
+    	const idUsuario    = req.session.currentUser._id  
 		
+		console.log(req.params)
 		
 		const updatedProfile = await Perfil.findByIdAndUpdate(
-			profileID, 
-			{photo, nombre, apellido, usuario, edad, pais, nivel, profileID },
+			
+			profileID,
+			{photo, nombre, apellido, usuario, edad, pais, nivel,idUsuario },
 			{new: true}
 		)
 	
-		console.log(profileID)
+		
 	
-		res.redirect(`/users/${updatedProfile._id}`)
+		res.redirect(`/users/profile`)
 	
 	}
 
