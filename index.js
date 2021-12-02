@@ -33,10 +33,9 @@ app.use((req, res, next) => {
 
 
 app.use("/users", require("./routes/users"))
+app.use("/createdRoutes", require("./routes/usersRoutes"))
+app.use("/createdRoutes", require("./routes/users"))
 app.use("/", require("./routes/index"))
-
-app.use("/users", require("./routes/usersRoutes"))
-
 // 4 Servidor
 
 app.listen(process.env.PORT, () => {

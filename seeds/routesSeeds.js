@@ -14,7 +14,7 @@ const routes =[
 {
     title:"Nevado de Toluca (Periferia Cráter) - México",
     state:"Estado de México",
-    town: ["Calimaya", "Zi­nacantepec", "Tenango del Valle ", "Villa Guerrero"],
+    town: "Calimaya",
     altitude:4677,
     lodging:"Hotel del Real",
     magicTown:"Zinacantepec",
@@ -24,7 +24,7 @@ const routes =[
 },{
     title:"La Malinche, México",
     state:"Tlaxcala - San Luis",
-    town: ["Huamantla"],
+    town: "Huamantla",
     altitude:4442,
     lodging:"Hotel Cuamanco Huamantla",
     magicTown:"Huamantla",

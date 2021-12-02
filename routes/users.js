@@ -7,7 +7,7 @@ const usersController	= require("./../controllers/userController")
 
 const routeGuard	= require("./../middlewares/route-guard")
 
-console.log("El routeguard importado es:", routeGuard.usuarioLoggeado)
+//console.log("El routeguard importado es:", routeGuard.usuarioLoggeado)
 
 // 2. RUTEO
 
@@ -34,4 +34,10 @@ module.exports = router
 router.get("/myRoute", routeGuard.usuarioLoggeado, usersController.createRouteView)
 router.post("/myRoute", routeGuard.usuarioLoggeado, usersController.createUserRoute)
 
+//Edit my routes
+router.get("/:routeID/editMyRoute", routeGuard.usuarioLoggeado, usersController.viewEditUserRoute)
+router.post("/:routeID/editMyRoute", routeGuard.usuarioLoggeado, usersController.editUserRoute)
+
+//Delete my routes
+router.post("/:routeID/delete",  routeGuard.usuarioLoggeado, usersController.deleteUserRoute )
 
