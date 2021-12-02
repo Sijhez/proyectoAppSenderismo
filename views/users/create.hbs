@@ -1,43 +1,135 @@
-{{!-- ./views/books/create --}}
-<h1>Crear Perfil</h1>
+<div class="flex flex-col min-w-0 flex-1 overflow-hidden">
 
-<form action="/users/create" method="POST">
+	<div class="flex-1 relative z-0 flex overflow-hidden">
+		<main class="flex-1 relative z-0 overflow-y-auto focus:outline-none xl:order-last">
 
-	<label>Foto</label>
-	<input type="text" name="photo" />
 
-	<br />
+			<article>
+				<!-- Profile header -->
+				<div>
+					<div>
+						<img class="h-32 w-full object-cover lg:h-48"
+							src="https://cdn.whistler.com/blog/wp-content/uploads/2019/09/05151229/whistler-hiking-guide-og.jpg"
+							alt="">
+					</div>
+					<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
-	<label>Nombre</label>
-	<input type="text" name="nombre" />
+						<div class="-mt-12 sm:-mt-16 sm:flex sm:items-end sm:space-x-5">
+							<div class="flex">
+								<img class="h-24 w-24 rounded-full ring-4 ring-white sm:h-32 sm:w-32"
+									src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
+									alt="">
+							</div>
 
-	<br />
 
-	<label>Apellido</label>
-	<input type="text" name="apellido" />
+							<div
+								class="mt-6 sm:flex-1 sm:min-w-0 sm:flex sm:items-center sm:justify-end sm:space-x-6 sm:pb-1">
+								<div
+									class="mt-6 flex flex-col justify-stretch space-y-3 sm:flex-row sm:space-y-0 sm:space-x-4">									<form action="/users/create" method="POST">
+							<a href="/users/create">
 
-	<br />
+										<button type="submit"
+											class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
 
-	<label>Usuario</label>
-	<input type="text" name="usuario" />
+											<span>Crear Perfil</span>
+										</button>
+									</a>
+								</div>
 
-	<br />
+							</div>
 
-  <label>Edad</label>
-	<input type="number" name="edad" />
+						</div>
 
-	<br />
+					</div>
+				</div>
 
-  <label>País</label>
-	<input type="text" name="pais" />
+				<!-- Tabs -->
+				<div class="mt-6 sm:mt-2 2xl:mt-5">
+					<div class="border-b border-gray-200">
+						<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+							<nav class="-mb-px flex space-x-8" aria-label="Tabs">
+								<!-- Current: "border-pink-500 text-gray-900", Default: "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" -->
+								<a href="#"
+									class="border-pink-500 text-gray-900 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm"
+									aria-current="page">
+									Crear Perfil
+								</a>
 
-	<br />
+							</nav>
+						</div>
+					</div>
+				</div>
 
-  <label>Nivel</label>
-	<input type="text" name="nivel" />
+				<!-- Description list -->
+				<div class="mt-6 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+					<dl class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
 
-	<br />
+						<div class="sm:col-span-1">
+							<dt class="text-sm font-medium text-gray-500">
+								Usuario
+							</dt>
+							<dd class="mt-1 text-sm text-gray-900">
+								<input type="text" name="usuario" placeholder="Usuario" />
+							</dd>
+						</div>
 
-	<button type="submit">Crear Perfil</button>
+						<div class="sm:col-span-1">
+							<dt class="text-sm font-medium text-gray-500">
+								Nombre
+							</dt>
+							<dd class="mt-1 text-sm text-gray-900">
+								<input type="text" name="nombre" placeholder="Nombre" />
+							</dd>
+						</div>
 
-</form>
+						<div class="sm:col-span-1">
+							<dt class="text-sm font-medium text-gray-500">
+								Apellido
+							</dt>
+							<dd class="mt-1 text-sm text-gray-900">
+								<input type="text" name="apellido" placeholder="Apellido" />
+							</dd>
+						</div>
+
+						<div class="sm:col-span-1">
+							<dt class="text-sm font-medium text-gray-500">
+								Edad
+							</dt>
+							<dd class="mt-1 text-sm text-gray-900">
+								<input type="number" name="edad" placeholder="Edad" />
+							</dd>
+						</div>
+
+						<div class="sm:col-span-1">
+							<dt class="text-sm font-medium text-gray-500">
+								País
+							</dt>
+							<dd class="mt-1 text-sm text-gray-900">
+								<input type="text" name="pais" placeholder="País" />
+							</dd>
+						</div>
+
+						<div class="sm:col-span-1">
+							<dt class="text-sm font-medium text-gray-500">
+								Nivel
+							</dt>
+							<dd class="mt-1 text-sm text-gray-900">
+								<input type="text" name="nivel" placeholder="Nivel" />
+							</dd>
+						</div>
+
+
+					</dl>
+				</div>
+
+				</form>
+
+				<br>
+				<br>
+				<br>
+
+			</article>
+		</main>
+	</div>
+</div>
+</div>
