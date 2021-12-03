@@ -44,10 +44,7 @@ exports.register = async (req, res) => {
 			username,
 			email,
 			passwordEncriptado
-		}) 
-
-		console.log(newUser)
-		
+		}) 		
 	
 		res.redirect("/login")
 
