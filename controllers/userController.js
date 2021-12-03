@@ -32,8 +32,11 @@ exports.getProfile = async (req, res) => {
 
 
 exports.viewProfile = async (req,res) => {
+	const user = await Perfil.findById(req.session.currentUser._id)
+	res.render("users/create", {
+		data:user
+	})
 	
-	res.render("users/create")
 
 }
 
@@ -41,7 +44,7 @@ exports.createProfile = async (req, res) => {
 	
 	console.log(req.body)
 
-	const photo    = req.body.photo     
+	const photo    = 'https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80'   
 	const nombre   = req.body.nombre     
 	const apellido = req.body.apellido     
 	const usuario  = req.body.usuario     

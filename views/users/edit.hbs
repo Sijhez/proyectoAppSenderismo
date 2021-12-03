@@ -14,9 +14,11 @@
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">      
 
               <div class="-mt-12 sm:-mt-16 sm:flex sm:items-end sm:space-x-5">
+
+
                 <div class="flex">
                   <img class="h-24 w-24 rounded-full ring-4 ring-white sm:h-32 sm:w-32"
-                    src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
+                    src= {{this.photo}}
                     alt="">
                 </div>
 
@@ -29,7 +31,7 @@
               <form action="/users/{{data._id}}/edit" method="POST">
                     
 
-                      <button type="button"
+                      <button 
                         class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                         
                         <span>Guardar Cambios</span>
@@ -128,16 +130,16 @@
                 </dd>
               </div>
 
-
+               <div class="sm:col-span-1">
+                <dt class="text-sm font-medium text-gray-500">
+                  Foto
+                </dt>
+                <dd class="mt-1 text-sm text-gray-900">
+                   <input type="text" name="photo" value="{{data.photo}}" />
+                </dd>
+              </div>
               
-                <button 
-                  class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-
-                  Guardar Cambios
-                </button>
-              
-
-            </dl>
+              </dl>
           </div>
 
          </form>
