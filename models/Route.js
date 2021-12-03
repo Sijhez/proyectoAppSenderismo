@@ -9,10 +9,7 @@ const routeSchema = mongoose.Schema({
     hardness: Number,
     description: String,
     imgUrl: String,
-    postedBy: {
-        type: mongoose.Schema.Types.ObjectId, 
-        ref: "User"
-    }
+    postedBy: String
 },{
     timestamps:true
 })

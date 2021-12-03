@@ -1,7 +1,7 @@
-{{!-- <h1>Mi Perfil</h1>
-
+<h1>Mi perfil:</h1>
 
 <div class="min-h-full">
+{{#with data}}
 
   <main class="py-10">
     <!-- Page header -->
@@ -9,13 +9,13 @@
       <div class="flex items-center space-x-5">
         <div class="flex-shrink-0">
           <div class="relative">
-            <img class="h-16 w-16 rounded-full" src="{{currentUser.imgUrl}}" alt="">
+            <img class="h-16 w-16 rounded-full" src="{{photo}}" alt="">
             <span class="absolute inset-0 shadow-inner rounded-full" aria-hidden="true"></span>
           </div>
         </div>
         <div>
           <h1 class="text-2xl font-bold text-gray-900">
-            My Name  {{!-- {{currentUser.name}} --}}
+             {{nombre}} {{apellido}}
           </h1>
         </div>
       </div>
@@ -31,7 +31,7 @@
                 Information
               </h2>
               <p class="mt-1 max-w-2xl text-sm text-gray-500">
-              My Email  {{!-- {{currentUser.email}} --}}
+               {{currentUser.email}}
               </p>
             </div>
             <div>
@@ -42,4 +42,5 @@
       </div>
     </div>
   </main>
-</div> --}}
+  {{/with}}
+</div> 

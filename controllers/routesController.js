@@ -13,8 +13,25 @@ exports.getSingleRoute = async(req,res) =>{
    
   const singleRouteID = req.params.routeID
     const getSingleRoute = await Route.findById(singleRouteID)
+
+    if(req.session.currentUser){
+      if(req.session.currentUser.username === getSingleRoute.postedBy){
+        res.render("createdRoutes/singleRoute",{
+          data:{getSingleRoute,
+          creado:true}
+        });
+        
+      }else{
+        res.render("createdRoutes/singleRoute",{
+          data:{getSingleRoute}
+        })
+      }
+    }else{
+      res.render("createdRoutes/singleRoute",{
+        data:{getSingleRoute}
+      })
+    }
     
-    res.render("createdRoutes/singleRoute",{
-      data:getSingleRoute
-    })
+    
 }
+
