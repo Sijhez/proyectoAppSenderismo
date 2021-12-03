@@ -106,13 +106,13 @@ exports.createProfile = async (req, res) => {
 		res.redirect("/users/profile")
 	 }
    
-    exports.getOneProfile = async(req, res) =>{
-        const profileID = req.params.profileID
-        const getOneUser = await Perfil.findById(profileID)
-        res.render("users/userProfile",{
-            data:getOneUser
-        })
-    }
+    // exports.getOneProfile = async(req, res) =>{
+    //     const profileID = req.params.profileID
+    //     const getOneUser = await Perfil.findById(profileID)
+    //     res.render("users/userProfile",{
+    //         data:getOneUser
+    //     })
+    // }
 
 
 //CREATE ROUTE- VIEWS
@@ -132,8 +132,8 @@ exports.createUserRoute = async (req, res)=>{
     const description = req.body.description
     const imgUrl = req.body.imgUrl
     const postedBy = req.session.currentUser.username
-    
-     const newRouteCreated = await Route.create({title, state, town, altitude, lodging, magicTown, hardness, description, imgUrl, postedBy})
+    const idOwner = req.session.currentUser._id
+     const newRouteCreated = await Route.create({title, state, town, altitude, lodging, magicTown, hardness, description, imgUrl, postedBy, idOwner})
     //console.log("nueva ruta en DB:", newRouteCreated)
 
     res.redirect('/createdRoutes/allRoutes')

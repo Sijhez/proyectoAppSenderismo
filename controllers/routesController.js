@@ -31,5 +31,7 @@ exports.getSingleRoute = async(req,res) =>{
         data:{getSingleRoute}
       })
     }
+    
+    
 }
 

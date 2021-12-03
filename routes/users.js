@@ -17,8 +17,8 @@ router.get("/create", routeGuard.usuarioLoggeado, usersController.viewProfile)
 router.post("/create",routeGuard.usuarioLoggeado, usersController.createProfile)
 
 router.get("/profile", usersController.getProfile)
-//watch one user profile
-router.get("/:profileID", usersController.getOneProfile)
+// //watch one user profile
+// router.get("/:profileID", usersController.getOneProfile)
 
 router.get("/:profileID/edit", usersController.viewEditProfile)
 
