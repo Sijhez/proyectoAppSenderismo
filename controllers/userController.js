@@ -12,21 +12,16 @@ exports.getProfile = async (req, res) => {
 	})
 }
 
-
-
 exports.viewProfile = async (req,res) => {
 	const user = await Perfil.findById(req.session.currentUser._id)
 	res.render("users/create", {
 		data:user
 	})
-	
-
 }
 
 exports.createProfile = async (req, res) => {
 	
-	console.log(req.body)
-
+	
 	const photo    = 'https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80'   
 	const nombre   = req.body.nombre     
 	const apellido = req.body.apellido     
@@ -48,7 +43,6 @@ exports.createProfile = async (req, res) => {
 			idUsuario 
 			})
 		
-			//console.log(newperfil)
 		
 			res.redirect('/users/profile',)	
 	}
@@ -56,8 +50,6 @@ exports.createProfile = async (req, res) => {
 
 	exports.viewEditProfile = async (req, res) => {
 
-		console.log(req.params)
-	
 		const profileID = req.params.profileID
 	
 		const foundProfile = await Perfil.findById(profileID)
@@ -79,7 +71,6 @@ exports.createProfile = async (req, res) => {
     	const nivel    = req.body.nivel 
     	const idUsuario    = req.session.currentUser._id  
 		
-		console.log(req.params)
 		
 		const updatedProfile = await Perfil.findByIdAndUpdate(
 			
@@ -87,17 +78,13 @@ exports.createProfile = async (req, res) => {
 			{photo, nombre, apellido, usuario, edad, pais, nivel,idUsuario },
 			{new: true}
 		)
-	
-		
-	
-		res.redirect(`/users/profile`)
-	
+
+		res.redirect(`/users/profile`)	
 	}
 
 
 	exports.deleteProfile = async (req, res) => {
 
-		// 1. IDENTIFICAR EL LIBRO QUE QUIERO BORRAR
 		const profileID = req.params.profileID
 	
 		// 2. REALIZAMOS BORRADO EN BASE DE DATOS
@@ -107,16 +94,8 @@ exports.createProfile = async (req, res) => {
 	
 		// 3. REDIRECCIÓN
 		res.redirect("/users/profile")
-	 }
-   
-    // exports.getOneProfile = async(req, res) =>{
-    //     const profileID = req.params.profileID
-    //     const getOneUser = await Perfil.findById(profileID)
-    //     res.render("users/userProfile",{
-    //         data:getOneUser
-    //     })
-    // }
-
+	 }   
+  
 
 //CREATE ROUTE- VIEWS
 exports.createRouteView = async(req, res)=>{
@@ -143,6 +122,7 @@ exports.createUserRoute = async (req, res)=>{
     //const idOwner = req.session.currentUser._id
      const newRouteCreated = await Route.create({title, state, town, altitude, lodging, magicTown, hardness, description, imgUrl1, imgUrl2, imgUrl3, imgUrl4, imgUrl5, imgUrl6, postedBy})
     //console.log("nueva ruta en DB:", newRouteCreated)
+
 
     res.redirect('/createdRoutes/allRoutes')
 }

@@ -1,4 +1,5 @@
 //scripts de apoyo para UserInterface
+
 let modalId = $('#image-gallery');
 
 $(document).ready(function () {
@@ -89,3 +90,4 @@ $(document).keydown(function (e) {
     }
     e.preventDefault(); // prevent the default action (scroll / move caret)
   });
+
