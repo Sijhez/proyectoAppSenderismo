@@ -1,5 +1,6 @@
 // ./controllers/usersController.js
 const Perfil   = require('./../models/Perfil')
+const User = require('./../models/User')
 const Route = require('./../models/Route')
 
 
@@ -20,8 +21,6 @@ exports.viewProfile = async (req,res) => {
 }
 
 exports.createProfile = async (req, res) => {
-	
-	
 	const photo    = 'https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80'   
 	const nombre   = req.body.nombre     
 	const apellido = req.body.apellido     
@@ -44,7 +43,7 @@ exports.createProfile = async (req, res) => {
 			})
 		
 		
-			res.redirect('/users/profile',)	
+			res.redirect('/users/profile')	
 	}
 
 
@@ -103,7 +102,6 @@ exports.createRouteView = async(req, res)=>{
 }
 
 exports.createUserRoute = async (req, res)=>{
-    
     const title = req.body.title
     const state = req.body.state
     const town = req.body.town
@@ -127,6 +125,13 @@ exports.createUserRoute = async (req, res)=>{
     res.redirect('/createdRoutes/allRoutes')
 }
 
+exports.viewUserProfile = async(req, res)=>{
+   const userProfileID = req.params.profileID
+   const foundProfile = await User.findById(userProfileID)
+   res.render('users/userProfile',{
+	   data:foundProfile
+   })
+}
 
 //EDIT ROUTE- VIEWS
 exports.viewEditUserRoute = async (req, res) =>{

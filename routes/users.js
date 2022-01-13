@@ -13,12 +13,15 @@ router.get("/create", routeGuard.usuarioLoggeado, usersController.viewProfile)
 router.post("/create",routeGuard.usuarioLoggeado, usersController.createProfile)
 
 router.get("/profile", usersController.getProfile)
+router.get("/:profileID", routeGuard.usuarioLoggeado, usersController.viewUserProfile)
+
 router.get("/:profileID/edit", usersController.viewEditProfile)
 
 router.post("/:profileID/edit",routeGuard.usuarioLoggeado, usersController.editProfile)
 router.post("/:profileID/delete",routeGuard.usuarioLoggeado, usersController.deleteProfile)
 
-module.exports = router
+
+
 
 //create new Routes
 router.get("/myRoute", routeGuard.usuarioLoggeado, usersController.createRouteView)
@@ -31,3 +34,4 @@ router.post("/:routeID/editMyRoute", routeGuard.usuarioLoggeado, usersController
 //Delete my routes
 router.post("/:routeID/deleteRoute",  routeGuard.usuarioLoggeado, usersController.deleteUserRoute )
 
+module.exports = router
