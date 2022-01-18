@@ -28,9 +28,9 @@ $ npm install --yes
 
 ## Sembrado de bases de datos
 Una vez instalados los componentes, generar un archivo `.env`. Instalar las siguientes variables globales : 
-*  PORT=
-*  MONGODB_URI=
-*  SESSION=
+*  PORT=3000
+*  MONGODB_URI= 'mongodb://localhost:27017/'
+*  SESSION='palabraSecreta'
 
 Una vez conectadas las bases de datos, levantar server con 
 ```bash
@@ -47,3 +47,7 @@ Ejecutar el sembrado de datos: El archivo `seeds/routeSeeds.js` ejecuta el sembr
 $ cd seeds
 $ node routesSeeds.js
 ```
+
+
+El proyecto presenta tres models que se encuentran en `/models/`: Perfil, Route y User.
+

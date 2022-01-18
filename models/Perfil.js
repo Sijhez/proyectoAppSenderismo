@@ -2,7 +2,7 @@
 
 // 1. IMPORTACIONES
 const mongoose = require("mongoose")
-const Route = require("./Route")
+
 
 // 2. SCHEMA
 
@@ -14,8 +14,7 @@ const perfilSchema = mongoose.Schema({
 	edad: Number,
     pais: String,
     nivel: String,
-	idUsuario: String,
-	myPosts:[{type:mongoose.Schema.Types.ObjectId,ref:"Route"}]
+	idUsuario: String
 },
 {
 	timestamps: true

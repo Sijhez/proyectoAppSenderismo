@@ -2,8 +2,8 @@ const Route = require("./../models/Route")
 
 //READ ROUTE- VIEWS
 exports.viewAllRoutes = async(req, res)=>{
-    const allRoutes = await Route.find({})
-
+    const allRoutes = await Route.find({}).populate('owner')
+     console.log(allRoutes)
   res.render("createdRoutes/allRoutes", {
       data: allRoutes
   })

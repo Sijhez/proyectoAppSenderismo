@@ -1,6 +1,6 @@
 // ./controllers/usersController.js
+const User = require('./../models/User')
 const Perfil   = require('./../models/Perfil')
-
 const Route = require('./../models/Route')
 
 
@@ -72,7 +72,6 @@ exports.createProfile = async (req, res) => {
 		
 		
 		const updatedProfile = await Perfil.findByIdAndUpdate(
-			
 			profileID,
 			{photo, nombre, apellido, usuario, edad, pais, nivel,idUsuario },
 			{new: true}
@@ -118,27 +117,28 @@ exports.createUserRoute = async (req, res)=>{
 	const imgUrl6 = req.body.imgUrl6
     const postedBy = req.session.currentUser.username
 	const owner = req.session.currentUser._id
-    //const idOwner = req.session.currentUser._id
-     const newRouteCreated = await Route.create({title, state, town, altitude, lodging, magicTown, hardness, description, imgUrl1, imgUrl2, imgUrl3, imgUrl4, imgUrl5, imgUrl6, postedBy, owner})
+	//const idOwner = req.session.currentUser._id
+	try {
+		const newRouteCreated = await Route.create({title, state, town, altitude, lodging, magicTown, hardness, description, imgUrl1, imgUrl2, imgUrl3, imgUrl4, imgUrl5, imgUrl6, postedBy, owner})
+		const updatedUser = await User.findByIdAndUpdate(
+			owner,{
+				$push:{myPosts: newRouteCreated._id}
+			}
+		)
+		//console.log(updatedUser)
+		res.redirect('/createdRoutes/allRoutes')
+	} catch (error) {
+		console.log(error)
+		res.status(500)
+	}
+    
+	
     //console.log("nueva ruta en DB:", newRouteCreated)
-    const updateProfile = await Perfil.findByIdAndUpdate(
-		owner,{
-			$push:{myPosts: newRouteCreated},
-		},{
-			new:true
-		}
-	)
+    
 
-    res.redirect('/createdRoutes/allRoutes')
+    
 }
 
-// exports.viewUserProfile = async(req, res)=>{
-//    const userProfileID = req.params.profileID
-//    const foundProfile = await User.findById(userProfileID)
-//    res.render('users/userProfile',{
-// 	   data:foundProfile
-//    })
-// }
 
 //EDIT ROUTE- VIEWS
 exports.viewEditUserRoute = async (req, res) =>{
@@ -175,22 +175,9 @@ exports.deleteUserRoute = async (req, res) =>{
     const singleRouteID = req.params.routeID
     
     const deletedSingleRoute = await Route.findByIdAndDelete(singleRouteID)
-    console.log("Ruta eliminada:", deletedSingleRoute)
+    // console.log("Ruta eliminada:", deletedSingleRoute)
     res.redirect('/createdRoutes/allRoutes')
 }
 
-exports.addRoute = async(req, res) =>{
-	const userProfileID = req.params.profileID;
-	try {
-		const updateProfile = await Perfil.findByIdAndUpdate(
-		req.userProfileID,{
-			$push:{myPosts:id},
-		},{
-			new:true
-		});
-		res.redirect('/createdRoutes/allRoutes')
-	} catch (error) {
-		console.log(error);	
-	}
-}
+
 

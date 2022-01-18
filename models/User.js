@@ -15,7 +15,8 @@ const userSchema = mongoose.Schema({
 		lowercase: true, 
 		trim: true 
 	},
-	passwordEncriptado: String
+	passwordEncriptado: String,
+	myPosts:[{type:mongoose.Schema.Types.ObjectId,ref:"Route"}]
 })
 
 // 3. MODELO
