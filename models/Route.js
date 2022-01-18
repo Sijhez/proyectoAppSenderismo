@@ -14,7 +14,8 @@ const routeSchema = mongoose.Schema({
     imgUrl4: String,
     imgUrl5: String,
     imgUrl6: String,
-    postedBy: String
+    postedBy: String,
+    owner:{type: mongoose.Schema.Types.ObjectId, ref:"Perfil"}
 },{
     timestamps:true
 })

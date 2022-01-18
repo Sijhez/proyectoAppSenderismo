@@ -13,11 +13,12 @@ router.get("/create", routeGuard.usuarioLoggeado, usersController.viewProfile)
 router.post("/create",routeGuard.usuarioLoggeado, usersController.createProfile)
 
 router.get("/profile", usersController.getProfile)
-router.get("/:profileID", routeGuard.usuarioLoggeado, usersController.viewUserProfile)
+// router.get("/:profileID", routeGuard.usuarioLoggeado, usersController.viewUserProfile)
 
 router.get("/:profileID/edit", usersController.viewEditProfile)
 
 router.post("/:profileID/edit",routeGuard.usuarioLoggeado, usersController.editProfile)
+router.post("/:profileID/registerRoute", routeGuard.usuarioLoggeado,usersController.addRoute )
 router.post("/:profileID/delete",routeGuard.usuarioLoggeado, usersController.deleteProfile)
 
 
