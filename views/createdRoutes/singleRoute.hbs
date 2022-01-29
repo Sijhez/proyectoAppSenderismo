@@ -106,8 +106,9 @@
         <h2 id="features-heading" class="font-medium text-gray-500">{{this.getSingleRoute.state}}</h2>
         <p class="mt-4 text-4xl font-extrabold text-gray-900 tracking-tight">{{this.getSingleRoute.title}}</p>
         <p class="mt-4  text-gray-900 tracking-tight"><b>Posteado por:</b>
-        
-       {{this.getSingleRoute.postedBy}}</p>
+          {{getSingleRoute.owner.username}}
+        </p>
+       {{!-- {{this.getSingleRoute.postedBy}} --}}
         <p class="mt-4 text-gray-500"><b>Hospedaje Cercano:</b> {{this.getSingleRoute.lodging}}.</p>
 
         <dl class="mt-10 grid grid-cols-1 gap-y-10 gap-x-8 text-sm sm:grid-cols-2">

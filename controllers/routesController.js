@@ -3,7 +3,7 @@ const Route = require("./../models/Route")
 //READ ROUTE- VIEWS
 exports.viewAllRoutes = async(req, res)=>{
     const allRoutes = await Route.find({}).populate('owner')
-     console.log(allRoutes)
+     
   res.render("createdRoutes/allRoutes", {
       data: allRoutes
   })
@@ -12,7 +12,7 @@ exports.viewAllRoutes = async(req, res)=>{
 exports.getSingleRoute = async(req,res) =>{
    
   const singleRouteID = req.params.routeID
-    const getSingleRoute = await Route.findById(singleRouteID)
+    const getSingleRoute = await Route.findById(singleRouteID).populate('owner')
 
     if(req.session.currentUser){
       if(req.session.currentUser.username === getSingleRoute.postedBy){
@@ -26,6 +26,7 @@ exports.getSingleRoute = async(req,res) =>{
           data:{getSingleRoute}
         })
       }
+      console.log(getSingleRoute)
     }else{
       res.render("createdRoutes/singleRoute",{
         data:{getSingleRoute}
