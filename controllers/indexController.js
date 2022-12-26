@@ -1,10 +1,12 @@
 // ./controllers/indexController.js
 const User		= require("./../models/User")
 const bcryptjs = require("bcryptjs")
+const async = require("hbs/lib/async")
 
 exports.home = async (req, res) => {
 	res.render("home")
 }
+
 
 exports.viewRegister = (req, res) => {
 	res.render("signup")

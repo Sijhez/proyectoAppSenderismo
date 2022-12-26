@@ -2,6 +2,7 @@
 const express         = require('express')
 const app             = express()
 const hbs             = require('hbs')
+const { default: mongoose } = require('mongoose')
 const connectDB       = require('./config/db')
 const sessionManager = require("./config/session")
 
@@ -11,7 +12,7 @@ require('dotenv').config()
 //2 Middlewares
 sessionManager(app)
 
-app.use(express.static("public"))
+app.use(express.static(__dirname + "/public/"));
 
 
 
@@ -21,7 +22,7 @@ app.set("view engine", "hbs")
 hbs.registerPartials(__dirname + "/views/partials")
 app.use(express.urlencoded({ extended: true }))
 
-
+mongoose.set('strictQuery', true);
 
 connectDB()
 // 3 Rutas

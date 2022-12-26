@@ -1,6 +1,6 @@
 {{!-- ./views/partials/header.hbs --}}
-
-<div class="relative bg-gray-50">
+<header class="rex">
+<div class="relative">
 		<div class="relative bg-white shadow">
 			<div class="max-w-7xl mx-auto px-4 sm:px-6">
 				<div class="flex justify-evenly items-center py-6">
@@ -41,14 +41,17 @@
 						</a>
 						{{else}}
 						<a href="/" class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
+						{{> iconSvg myIcon="futbol"}}
 							Home
 						</a>
 						
 						<a href="/createdRoutes/allRoutes" class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
-                       Explorar rutas
+                      {{> iconSvg myIcon="user"}}
+					   Explorar rutas
                       </a>
                        
 						<a href="/login" class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
+						{{> iconSvg myIcon="heart"}}
 							Inicia Sesión
 						</a>
 						<a href="/signup"
@@ -62,3 +65,4 @@
 			</div>
 		</div>
 	</div>
+</header>
