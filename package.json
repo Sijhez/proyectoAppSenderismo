@@ -20,7 +20,7 @@
     "gulp-svgstore": "^9.0.0",
     "hbs": "^4.2.0",
     "mongoose": "^6.8.1",
-    "nodemon": "^2.0.20"
+    "nodemon": "^3.1.4"
   },
   "repository": {
     "type": "git",
@@ -32,7 +32,7 @@
   "homepage": "https://github.com/Sijhez/proyectoAppSenderismo#readme",
   "description": "",
   "devDependencies": {
-    "gulp": "^4.0.2",
+    "gulp": "^5.0.0",
     "gulp-svg-symbols": "^3.2.3"
   }
 }
