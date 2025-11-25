@@ -3,7 +3,7 @@ const Route = require("./../models/Route")
 require('dotenv').config()
 
 //data base conection
-mongoose.connect('mongodb://localhost:27017/senderismoapp', {
+mongoose.connect('mongodb://localhost:27017/appSenderismo', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
