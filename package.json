@@ -13,13 +13,13 @@
     "bcryptjs": "^2.4.3",
     "connect-mongo": "^4.6.0",
     "dotenv": "^10.0.0",
-    "express": "^4.18.2",
+    "express": "^5.1.0",
     "express-session": "^1.17.2",
     "gulp-rename": "^2.0.0",
     "gulp-svgmin": "^4.1.0",
     "gulp-svgstore": "^9.0.0",
     "hbs": "^4.2.0",
-    "mongoose": "^6.8.1",
+    "mongoose": "^7.8.7",
     "nodemon": "^3.1.4"
   },
   "repository": {
