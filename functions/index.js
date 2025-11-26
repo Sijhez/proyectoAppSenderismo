@@ -3,8 +3,9 @@ const express         = require('express')
 const app             = express()
 const hbs             = require('hbs')
 const { default: mongoose } = require('mongoose')
-const connectDB       = require('./config/db')
-const sessionManager = require("./config/session")
+const connectDB       = require('../config/db')
+const sessionManager = require("../config/session")
+const serverless = require('serverless-http');
 
 
 require('dotenv').config()
@@ -33,12 +34,14 @@ app.use((req, res, next) => {
 })
 
 
-app.use("/users", require("./routes/users"))
-app.use("/createdRoutes", require("./routes/usersRoutes"))
-app.use("/createdRoutes", require("./routes/users"))
-app.use("/", require("./routes/index"))
+app.use("/users", require("../routes/users"))
+app.use("/createdRoutes", require("../routes/usersRoutes"))
+app.use("/createdRoutes", require("../routes/users"))
+app.use("/", require("../routes/index"))
 // 4 Servidor
 
-app.listen(process.env.PORT, () => {
-    console.log(`Servidor conectado en el puerto: http://localhost:${process.env.PORT}`)
-})
+// app.listen(process.env.PORT, () => {
+//     console.log(`Servidor conectado en el puerto: http://localhost:${process.env.PORT}`)
+// })
+
+module.exports.handler = serverless(app);
