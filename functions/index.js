@@ -2,8 +2,8 @@
 const express         = require('express')
 const app             = express()
 const hbs             = require('hbs')
-const { default: mongoose } = require('mongoose')
-const connectDB       = require('../config/db')
+// const { default: mongoose } = require('mongoose')
+// const connectDB       = require('../config/db')
 const sessionManager = require("../config/session")
 const serverless = require('serverless-http');
 
@@ -11,7 +11,7 @@ const serverless = require('serverless-http');
 require('dotenv').config()
 
 //2 Middlewares
-sessionManager(app)
+// sessionManager(app)
 
 app.use(express.static(__dirname + "/public/"));
 
@@ -23,21 +23,22 @@ app.set("view engine", "hbs")
 hbs.registerPartials(__dirname + "/views/partials")
 app.use(express.urlencoded({ extended: true }))
 
-mongoose.set('strictQuery', true);
+// mongoose.set('strictQuery', true);
 
-connectDB()
+// connectDB()
 // 3 Rutas
 // LAYOUT MIDDLEWARE
-app.use((req, res, next) => {
-	res.locals.currentUser = req.session.currentUser
-	next()
-})
+// app.use((req, res, next) => {
+// 	res.locals.currentUser = req.session.currentUser
+// 	next()
+// })
 
-
+app.use("/.netlify/functions/index", require("../routes/index"))
 app.use("/users", require("../routes/users"))
 app.use("/createdRoutes", require("../routes/usersRoutes"))
 app.use("/createdRoutes", require("../routes/users"))
-app.use("/", require("../routes/index"))
+
+
 // 4 Servidor
 
 // app.listen(process.env.PORT, () => {

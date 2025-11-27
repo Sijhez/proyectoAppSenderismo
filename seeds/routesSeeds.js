@@ -52,4 +52,4 @@ const createRoutes =  async()=>{
     console.log("Nueva ruta creada:", newRoute)
     mongoose.connection.close()
 }
-createRoutes()
+//createRoutes()
