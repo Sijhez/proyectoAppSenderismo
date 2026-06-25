@@ -1,13 +1,12 @@
 // 1 Importaciones
+require('dotenv').config()
+
 const express         = require('express')
 const app             = express()
 const hbs             = require('hbs')
 const { default: mongoose } = require('mongoose')
 const connectDB       = require('./config/db')
 const sessionManager = require("./config/session")
-
-
-require('dotenv').config()
 
 //2 Middlewares
 sessionManager(app)
